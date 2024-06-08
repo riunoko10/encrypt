@@ -1,0 +1,18 @@
+{% extends "digets/layout.html" %}
+
+{% block content %}
+    <h1>MD5</h1>
+
+    <form action="{% url 'md5' %}" method=post>
+        {% csrf_token %} 
+        {{ form_md5 }}
+    <button type="submit">Encriptar</button>
+    
+        {% if user and pass %}
+            <h2>User MD5</h2>
+            <p>{{ user }}</p>
+            <h2>Pass MD5</h2>
+            <p>{{ pass }}</p>
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "digets/layout.html" %}
+
+{% block content %}
+    <h1>Hash</h1>
+
+<form action="{% url 'hash' %}" method=post>
+    {% csrf_token %} 
+    {{ form_hash }}
+<button type="submit">Encriptar</button>
+
+    {% if user and pass %}
+        <h2>User Hash</h2>
+        <p>{{ user }}</p>
+        <h2>Pass Hash</h2>
+        <p>{{ pass }}</p>
+    {% endif %}
+{% endblock %}
