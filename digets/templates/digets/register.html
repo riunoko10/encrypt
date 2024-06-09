@@ -1,0 +1,18 @@
+{% extends "digets/layout.html" %}
+
+{% block content %}
+    <h1>Register</h1>
+
+    <form action="{% url 'register' %}" method=post>
+        {% csrf_token %} 
+        {{ form_register }}
+        <button type="submit">Register</button>
+    </form>
+    
+
+    <a href="{% url 'login' %}">Login</a>
+    {% if message %}
+        <h2>{{ message }}</h2>
+    {% endif %}
+
+{% endblock %}

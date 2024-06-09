@@ -1,0 +1,30 @@
+{% extends "digets/layout.html" %}
+{% block content %}
+    <h1>User Info</h1>
+
+    {% if username %}
+        <h3>Welcome: {{ username }}</h3>
+    
+    {% endif %}
+    
+    {% if user_data %}
+        <h3>Name: {{ user_data.name }}</h3>
+        <h3>Email: {{ user_data.email }}</h3>
+        <h3>User Info: {{ user_data.phone }}</h3>
+        <h3>User Info: {{ user_data.address }}</h3>
+    
+    {% else %}
+        <form action="{% url 'user' username %}" method=post>
+            {% csrf_token %} 
+            {{ user_info }}
+        <button type="submit">Complete</button>
+        </form>
+    {% endif %}
+    
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+        
+
+
+{% endblock %}

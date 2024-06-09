@@ -12,6 +12,12 @@ def hash_data_md5(data):
     return hash_object.hexdigest()
 
 
+def hash_data_sha512(data):
+    hash_object = hashlib.sha512()
+    hash_object.update(data.encode('utf-8'))
+    return hash_object.hexdigest()
+
+
 ## Metodo RC4
 def generate_key():
     return os.urandom(16)
